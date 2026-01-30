@@ -1,307 +1,258 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-    <meta name="title" content="INFEST 2026 - Innovation Beyond Limits">
-<meta name="description" content="Festival teknologi tahunan oleh HMJ INFINIS Polman Babel. Bergabunglah dalam kompetisi nasional BMC, Hackathon, Web Tech, dan Infografis.">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://infest-2026.vercel.app/">
-    <meta property="og:title" content="INFEST 2026 - Innovation Beyond Limits">
-    <meta property="og:description" content="Wadah inovasi talenta digital masa depan. Daftar kompetisi sekarang!">
-    <meta property="og:image" content="https://raw.githubusercontent.com/ant877931-dotcom/infest-2026/main/thumbnail.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>INFEST 2026 - Innovation Beyond Limits</title>
+    <meta name="title" content="INFEST 2026 - Innovation Beyond Limits">
+    <meta name="description" content="Festival teknologi tahunan oleh HMJ INFINIS Polman Babel. Bergabunglah dalam kompetisi nasional BMC, Hackathon, Web Tech, dan Infografis.">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; }
-        :root { --biru: #1E40AF; --kuning: #FACC15; --biru-gelap: #172554; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; overflow-x: hidden; }
+        :root { --biru: #1E40AF; --kuning: #FACC15; }
 
-        /* Smooth Mesh Gradient Background */
         .mesh-gradient {
-            background-color: var(--biru);
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(45,93%,58%,0.3) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(225,39%,20%,1) 0, transparent 50%);
+            background: radial-gradient(at 0% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+                        radial-gradient(at 100% 0%, hsla(45,93%,58%,0.3) 0, transparent 50%), var(--biru);
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
 
-        .text-glow { text-shadow: 0 0 20px rgba(250, 204, 21, 0.5); }
-
-        /* Animation for Floating Elements */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-
-        .btn-premium {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-        .btn-premium::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.6s;
-        }
-        .btn-premium:hover::before { left: 100%; }
+        /* Custom Swiper Styles */
+        .swiper-pagination-bullet-active { background: var(--biru) !important; width: 24px !important; border-radius: 5px !important; }
+        .activity-card { height: 400px; border-radius: 2.5rem; transition: all 0.5s ease; }
+        @media (max-width: 768px) { .activity-card { height: 300px; } }
     </style>
 </head>
 <body class="text-slate-900">
 
-    <nav class="fixed w-full z-[100] px-6 py-6 transition-all duration-500" id="navbar">
-        <div class="container mx-auto flex justify-between items-center bg-white/70 backdrop-blur-xl rounded-[2rem] px-8 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.05)] border border-white/40">
-            <div class="flex items-center gap-8">
-                <span class="text-2xl font-extrabold tracking-tighter text-blue-900 italic">INFEST<span class="text-yellow-500">2026</span></span>
-                <div class="hidden lg:flex space-x-6 text-xs font-bold uppercase tracking-widest text-slate-500">
+    <nav class="fixed w-full z-[100] px-4 py-4 md:px-6 md:py-6 transition-all duration-500" id="navbar">
+        <div class="container mx-auto flex justify-between items-center glass-nav rounded-[2rem] px-5 py-3 md:px-8 md:py-4 shadow-xl border border-white/40">
+            <div class="flex items-center gap-4 md:gap-8">
+                <span class="text-xl md:text-2xl font-black tracking-tighter text-blue-900 italic">INFEST<span class="text-yellow-500">2026</span></span>
+                <div class="hidden lg:flex space-x-6 text-[10px] font-bold uppercase tracking-widest text-slate-500">
                     <a href="#home" class="hover:text-blue-800 transition">Home</a>
                     <a href="javascript:void(0)" onclick="openModal()" class="hover:text-blue-800 transition">Competition</a>
                 </div>
             </div>
             
-            <div class="flex items-center gap-4 border-l border-slate-200 pl-6">
-                <div class="flex -space-x-2 group">
-                    <div class="w-10 h-10 rounded-full bg-white border-2 border-slate-50 shadow-sm flex items-center justify-center text-[7px] font-black group-hover:z-10 transition">POLMAN</div>
-                    <div class="w-10 h-10 rounded-full bg-white border-2 border-slate-50 shadow-sm flex items-center justify-center text-[7px] font-black group-hover:z-10 transition">APTIKOM</div>
-                    <div class="w-10 h-10 rounded-full bg-white border-2 border-slate-50 shadow-sm flex items-center justify-center text-[7px] font-black group-hover:z-10 transition">INFINIS</div>
-                    <div class="w-10 h-10 rounded-full bg-blue-900 text-white border-2 border-slate-50 shadow-sm flex items-center justify-center text-[6px] font-black group-hover:z-10 transition text-center leading-tight">IMPACT</div>
+            <div class="flex items-center gap-2">
+                <div class="flex -space-x-2 mr-2">
+                    <div class="w-8 h-8 rounded-full bg-white border border-slate-100 flex items-center justify-center text-[5px] font-black shadow-sm" title="Polman Babel">POLMAN</div>
+                    <div class="w-8 h-8 rounded-full bg-white border border-slate-100 flex items-center justify-center text-[5px] font-black shadow-sm" title="Aptikom">APTIKOM</div>
+                    <div class="w-8 h-8 rounded-full bg-white border border-slate-100 flex items-center justify-center text-[5px] font-black shadow-sm" title="HMJ Infinis">INFINIS</div>
+                    <div class="w-8 h-8 rounded-full bg-blue-900 text-white border border-slate-100 flex items-center justify-center text-[4px] font-black leading-tight text-center shadow-sm" title="Kampus Berdampak">KAMPUS<br>BERDAMPAK</div>
                 </div>
+                <button onclick="openModal()" class="bg-blue-900 text-white p-2.5 rounded-full lg:hidden shadow-lg">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <header id="home" class="mesh-gradient min-h-screen flex items-center justify-center text-white relative pt-20 overflow-hidden">
-        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-[0.4em]" data-aos="fade-down">
-                Informatics Festival 2026
-            </div>
-            <h1 class="text-6xl md:text-9xl font-black mb-8 italic uppercase tracking-tighter leading-none" data-aos="zoom-in">
-                Beyond <span class="text-yellow-400 text-glow">Future</span>
+    <header id="home" class="mesh-gradient min-h-screen flex items-center justify-center text-white relative pt-20 px-4 overflow-hidden text-center">
+        <div class="container mx-auto relative z-10">
+            <h1 class="text-5xl md:text-8xl font-black mb-8 italic uppercase tracking-tighter leading-none" data-aos="zoom-in">
+                beyond <span class="text-yellow-400">future</span>
             </h1>
             
-            <div id="countdown" class="flex justify-center gap-2 md:gap-6 mb-16" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex flex-col items-center">
-                    <div class="glass-card w-20 md:w-32 h-24 md:h-36 rounded-[2rem] flex items-center justify-center text-4xl md:text-6xl font-black" id="days">00</div>
-                    <span class="text-[10px] uppercase font-bold mt-4 tracking-widest opacity-50">Days</span>
+            <div id="countdown" class="flex justify-center gap-3 md:gap-6 mb-12" data-aos="fade-up">
+                <div class="bg-white/10 backdrop-blur-md p-4 md:p-6 rounded-3xl border border-white/20 w-20 md:w-32">
+                    <span id="days" class="text-2xl md:text-5xl font-black block">00</span>
+                    <span class="text-[8px] uppercase font-bold opacity-50">Days</span>
                 </div>
-                <div class="text-4xl md:text-6xl font-black mt-6 md:mt-10 opacity-30">:</div>
-                <div class="flex flex-col items-center">
-                    <div class="glass-card w-20 md:w-32 h-24 md:h-36 rounded-[2rem] flex items-center justify-center text-4xl md:text-6xl font-black" id="hours">00</div>
-                    <span class="text-[10px] uppercase font-bold mt-4 tracking-widest opacity-50">Hours</span>
+                <div class="bg-white/10 backdrop-blur-md p-4 md:p-6 rounded-3xl border border-white/20 w-20 md:w-32">
+                    <span id="hours" class="text-2xl md:text-5xl font-black block text-yellow-400">00</span>
+                    <span class="text-[8px] uppercase font-bold text-yellow-400">Hours</span>
                 </div>
-                <div class="text-4xl md:text-6xl font-black mt-6 md:mt-10 opacity-30">:</div>
-                <div class="flex flex-col items-center">
-                    <div class="glass-card w-20 md:w-32 h-24 md:h-36 rounded-[2rem] flex items-center justify-center text-4xl md:text-6xl font-black" id="minutes">00</div>
-                    <span class="text-[10px] uppercase font-bold mt-4 tracking-widest opacity-50">Minutes</span>
-                </div>
-                <div class="text-4xl md:text-6xl font-black mt-6 md:mt-10 opacity-30 text-yellow-400">:</div>
-                <div class="flex flex-col items-center">
-                    <div class="glass-card w-20 md:w-32 h-24 md:h-36 rounded-[2rem] flex items-center justify-center text-4xl md:text-6xl font-black text-yellow-400" id="seconds">00</div>
-                    <span class="text-[10px] uppercase font-bold mt-4 tracking-widest text-yellow-400">Seconds</span>
+                <div class="bg-white/10 backdrop-blur-md p-4 md:p-6 rounded-3xl border border-white/20 w-20 md:w-32">
+                    <span id="minutes" class="text-2xl md:text-5xl font-black block">00</span>
+                    <span class="text-[8px] uppercase font-bold opacity-50">Mins</span>
                 </div>
             </div>
             
-            <button onclick="openModal()" class="btn-premium bg-yellow-400 text-blue-900 px-16 py-6 rounded-full font-black text-sm uppercase tracking-widest shadow-[0_20px_50px_rgba(250,204,21,0.3)] hover:scale-105 transition-transform">
-                Join Competition
-            </button>
-        </div>
-        
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-30">
-            <div class="w-1 h-10 rounded-full bg-white"></div>
+            <button onclick="openModal()" class="bg-yellow-400 text-blue-900 px-12 py-5 rounded-full font-black text-sm uppercase tracking-widest shadow-2xl hover:scale-105 transition">Register Now</button>
         </div>
     </header>
 
-    <section class="py-32 bg-white">
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-blue-900 text-4xl font-black mb-8 italic uppercase tracking-tighter">What is <span class="text-yellow-500">INFEST?</span></h2>
+                <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                    INFEST 2026 merupakan program kerja tahunan pertama yang diselenggarakan oleh <strong>HMJ Informatika dan Bisnis Polman Babel</strong> sebagai wadah inovasi dan kreativitas digital.
+                </p>
+                <div class="p-6 bg-slate-50 rounded-3xl border-l-4 border-yellow-400 italic text-sm text-slate-500">
+                    "Menekankan pemanfaatan teknologi untuk menciptakan usaha yang inovatif, tangguh, dan berkelanjutan."
+                </div>
+            </div>
+            <div class="aspect-video bg-slate-100 rounded-[3rem] flex items-center justify-center font-bold text-slate-300" data-aos="fade-left">Teaser Video Placeholder</div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 overflow-hidden">
+        <div class="container mx-auto px-6 mb-12">
+            <h2 class="text-3xl font-black text-blue-900 italic uppercase">The Pillars</h2>
+        </div>
+        <div class="swiper bentoSwiper px-6">
+            <div class="swiper-wrapper lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="swiper-slide lg:col-span-4 h-full">
+                    <div class="p-10 bg-white rounded-[3rem] h-full shadow-sm border border-slate-100">
+                        <div class="text-4xl mb-6">🎓</div>
+                        <h3 class="text-2xl font-black text-blue-900 italic uppercase">Academy</h3>
+                        <p class="text-slate-500 mt-4 text-sm leading-relaxed">Menonjolkan kualitas akademik Polman Babel dalam mencetak talenta digital kompeten.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide lg:col-span-4 h-full">
+                    <div onclick="openModal()" class="p-10 bg-blue-900 text-white rounded-[3rem] h-full cursor-pointer group">
+                        <div class="text-4xl mb-6 group-hover:rotate-12 transition">🏆</div>
+                        <h3 class="text-2xl font-black text-yellow-400 italic uppercase">Competition</h3>
+                        <p class="text-slate-400 mt-4 text-sm leading-relaxed">4 Cabang lomba nasional bergengsi dengan hadiah jutaan rupiah.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide lg:col-span-4 h-full">
+                    <div class="p-10 bg-white rounded-[3rem] h-full shadow-sm border border-slate-100">
+                        <div class="text-4xl mb-6">🏢</div>
+                        <h3 class="text-2xl font-black text-blue-900 italic uppercase">Organization</h3>
+                        <p class="text-slate-500 mt-4 text-sm leading-relaxed">Digerakkan penuh oleh dedikasi HMJ INFINIS untuk dampak nyata.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination lg:hidden mt-10"></div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white text-center">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div class="lg:col-span-8 p-12 bg-slate-50 rounded-[3.5rem] relative overflow-hidden group" data-aos="fade-right">
-                    <div class="relative z-10">
-                        <h2 class="text-4xl md:text-5xl font-black text-blue-900 mb-8 italic uppercase leading-none">What is <span class="text-yellow-500">INFEST?</span></h2>
-                        <p class="text-slate-600 text-lg leading-relaxed max-w-2xl">
-                            INFEST 2026 adalah manifestasi inovasi dari **HMJ Informatika dan Bisnis Polman Babel**. 
-                            Sebuah festival teknologi tahunan yang mengintegrasikan semangat wirausaha dengan kemajuan teknologi modern untuk mencetak generasi **F.U.T.U.R.E**.
-                        </p>
-                    </div>
-                    <div class="absolute -bottom-10 -right-10 text-[120px] font-black text-blue-900/5 italic select-none group-hover:scale-110 transition duration-700">INFEST</div>
+            <h2 class="text-3xl font-black text-blue-900 mb-16 italic uppercase tracking-tighter">Core Values</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div data-aos="zoom-in">
+                    <div class="text-5xl mb-6">💥</div>
+                    <h4 class="text-xl font-black text-blue-900 uppercase italic">Impactful</h4>
+                    <p class="text-slate-500 text-sm mt-3">Menciptakan perubahan nyata.</p>
                 </div>
-
-                <div class="lg:col-span-4 p-10 bg-blue-50 rounded-[3.5rem] flex flex-col justify-between group" data-aos="fade-up">
-                    <div class="text-4xl mb-6">🎓</div>
-                    <div>
-                        <h3 class="text-2xl font-black text-blue-900 mb-2 uppercase italic tracking-tighter">Academy</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Menampilkan standar akademik Polman Babel dalam membangun kompetensi talenta digital.</p>
-                    </div>
+                <div data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-5xl mb-6">🤝</div>
+                    <h4 class="text-xl font-black text-blue-900 uppercase italic">Collaborative</h4>
+                    <p class="text-slate-500 text-sm mt-3">Sinergi bersama praktisi.</p>
                 </div>
-
-                <div class="lg:col-span-4 p-10 bg-slate-900 text-white rounded-[3.5rem] flex flex-col justify-between group" data-aos="fade-up">
-                    <div class="text-4xl mb-6">🏢</div>
-                    <div>
-                        <h3 class="text-2xl font-black text-yellow-400 mb-2 uppercase italic tracking-tighter">Organization</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Pilar utama yang digerakkan oleh dedikasi HMJ INFINIS untuk perubahan.</p>
-                    </div>
-                </div>
-
-                <div onclick="openModal()" class="lg:col-span-8 p-12 bg-yellow-400 rounded-[3.5rem] cursor-pointer group flex flex-col md:flex-row items-center justify-between overflow-hidden" data-aos="fade-left">
-                    <div class="mb-6 md:mb-0">
-                        <h3 class="text-4xl font-black text-blue-900 uppercase italic leading-none mb-4">Competition</h3>
-                        <p class="text-blue-900/70 font-bold">4 National Challenges. Millions in Prizes.</p>
-                    </div>
-                    <div class="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center text-white text-3xl group-hover:scale-110 group-hover:rotate-45 transition duration-500">→</div>
+                <div data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-5xl mb-6">🔄</div>
+                    <h4 class="text-xl font-black text-blue-900 uppercase italic">Adaptive</h4>
+                    <p class="text-slate-500 text-sm mt-3">Tangguh di era digital.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 bg-slate-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-blue-900 text-xs font-bold uppercase tracking-[0.5em] mb-4" data-aos="fade-up">Our Identity</h2>
-                <h3 class="text-4xl font-black text-blue-950 uppercase italic tracking-tighter" data-aos="fade-up" data-aos-delay="100">The Core Values</h3>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-12 rounded-[3rem] text-center shadow-sm hover:shadow-2xl transition-all duration-500 group" data-aos="zoom-in">
-                    <div class="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl group-hover:scale-110 transition">💥</div>
-                    <h4 class="text-2xl font-black text-blue-900 uppercase italic mb-4">Impactful</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed text-justify">Fokus pada hasil nyata yang memberikan kontribusi substansial bagi lingkungan, industri, dan masyarakat luas.</p>
-                </div>
-                <div class="bg-white p-12 rounded-[3rem] text-center shadow-sm hover:shadow-2xl transition-all duration-500 group" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="w-24 h-24 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl group-hover:scale-110 transition">🤝</div>
-                    <h4 class="text-2xl font-black text-blue-900 uppercase italic mb-4">Collaborative</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed text-justify">Menghilangkan sekat dalam berinovasi, bekerja bersama akademisi dan praktisi industri untuk solusi terbaik.</p>
-                </div>
-                <div class="bg-white p-12 rounded-[3rem] text-center shadow-sm hover:shadow-2xl transition-all duration-500 group" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl group-hover:scale-110 transition">🔄</div>
-                    <h4 class="text-2xl font-black text-blue-900 uppercase italic mb-4">Adaptive</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed text-justify">Tangguh dan fleksibel dalam mengadopsi disrupsi teknologi untuk menciptakan solusi yang relevan.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-32 bg-white">
-        <div class="container mx-auto px-6 mb-16">
-            <h2 class="text-4xl md:text-6xl font-black text-blue-900 uppercase italic tracking-tighter" data-aos="fade-right">
-                Looking Back <br> <span class="text-yellow-500 decoration-blue-900 underline underline-offset-8">HMJ INFINIS</span>
+    <section class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="container mx-auto px-6 mb-12 flex justify-between items-end">
+            <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter">
+                Looking <span class="text-yellow-400 underline decoration-white">Back</span>
             </h2>
+            <div class="hidden md:flex gap-4">
+                <button class="act-prev w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition">←</button>
+                <button class="act-next w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition">→</button>
+            </div>
         </div>
-        <div class="flex overflow-hidden gap-6 px-6">
-            <div class="flex-none w-80 h-[450px] bg-slate-200 rounded-[2.5rem] animate-float" style="animation-delay: 0s;"></div>
-            <div class="flex-none w-80 h-[450px] bg-blue-100 rounded-[2.5rem] animate-float" style="animation-delay: 1s;"></div>
-            <div class="flex-none w-80 h-[450px] bg-slate-900 rounded-[2.5rem] animate-float" style="animation-delay: 2s;"></div>
-            <div class="flex-none w-80 h-[450px] bg-yellow-100 rounded-[2.5rem] animate-float" style="animation-delay: 3s;"></div>
-            <div class="flex-none w-80 h-[450px] bg-slate-100 rounded-[2.5rem] animate-float" style="animation-delay: 4s;"></div>
+        
+        <div class="swiper activitySwiper !px-6 overflow-visible">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide !w-auto">
+                    <div class="w-[280px] md:w-[500px] activity-card bg-blue-600 p-10 flex items-end">
+                        <h4 class="text-2xl font-black uppercase italic">Web Workshop 2025</h4>
+                    </div>
+                </div>
+                <div class="swiper-slide !w-auto">
+                    <div class="w-[280px] md:w-[500px] activity-card bg-yellow-500 text-blue-900 p-10 flex items-end">
+                        <h4 class="text-2xl font-black uppercase italic">INFINIS Gathering</h4>
+                    </div>
+                </div>
+                <div class="swiper-slide !w-auto">
+                    <div class="w-[280px] md:w-[500px] activity-card bg-slate-700 p-10 flex items-end">
+                        <h4 class="text-2xl font-black uppercase italic">Tech Talk Session</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer class="py-12 bg-white text-center border-t border-slate-100">
-        <p class="text-[10px] font-black text-slate-300 tracking-[0.8em] uppercase">INFEST 2026 x HMJ INFINIS Polman Babel</p>
+        <p class="text-[10px] font-black text-slate-400 tracking-[0.5em] uppercase italic">INFEST 2026 x HMJ INFINIS</p>
     </footer>
 
-    <div id="compModal" class="hidden fixed inset-0 z-[200] flex items-center justify-center p-4 bg-blue-950/80 backdrop-blur-xl transition-opacity duration-300">
-        <div class="bg-white w-full max-w-5xl rounded-[4rem] p-12 relative scale-90 transition-transform duration-500" id="modalBox">
-            <button onclick="closeModal()" class="absolute top-10 right-10 text-4xl font-light hover:rotate-90 transition-transform">&times;</button>
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-black text-blue-900 uppercase italic tracking-tighter">Choose Your Path</h2>
-                <p class="text-slate-400 font-bold uppercase tracking-widest text-xs mt-2">National Competition 2026</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <a href="detail-lomba.html?type=bmc" class="group p-8 border-2 border-slate-50 rounded-[2.5rem] hover:border-yellow-400 hover:bg-yellow-50 transition-all flex items-center justify-between">
-                    <div class="flex items-center gap-6">
-                        <div class="w-16 h-16 bg-blue-800 text-white rounded-2xl flex items-center justify-center font-black group-hover:scale-110 transition">01</div>
-                        <h4 class="text-xl font-black text-blue-900 uppercase italic">Business Model Canvas</h4>
-                    </div>
-                    <span class="opacity-0 group-hover:opacity-100 transition">→</span>
+    <div id="compModal" class="hidden fixed inset-0 z-[200] flex items-center justify-center p-4 bg-blue-950/80 backdrop-blur-xl">
+        <div class="bg-white w-full max-w-4xl rounded-[3rem] p-10 relative scale-90 transition-all duration-300 shadow-2xl" id="modalBox">
+            <button onclick="closeModal()" class="absolute top-8 right-8 text-3xl font-light">&times;</button>
+            <h2 class="text-3xl font-black text-blue-900 mb-10 italic uppercase text-center">Competition Hub</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="detail-lomba.html?type=bmc" class="p-6 border-2 border-slate-100 rounded-3xl hover:border-yellow-400 flex items-center gap-4 transition group">
+                    <span class="w-12 h-12 bg-blue-800 text-white rounded-xl flex items-center justify-center font-black group-hover:bg-yellow-400 group-hover:text-blue-900">01</span>
+                    <span class="font-bold text-blue-900 uppercase tracking-tighter">Business Model Canvas</span>
                 </a>
-                <a href="detail-lomba.html?type=hackathon" class="group p-8 border-2 border-slate-50 rounded-[2.5rem] hover:border-yellow-400 hover:bg-yellow-50 transition-all flex items-center justify-between">
-                    <div class="flex items-center gap-6">
-                        <div class="w-16 h-16 bg-blue-800 text-white rounded-2xl flex items-center justify-center font-black group-hover:scale-110 transition">02</div>
-                        <h4 class="text-xl font-black text-blue-900 uppercase italic">Hackathon</h4>
-                    </div>
-                    <span class="opacity-0 group-hover:opacity-100 transition">→</span>
+                <a href="detail-lomba.html?type=hackathon" class="p-6 border-2 border-slate-100 rounded-3xl hover:border-yellow-400 flex items-center gap-4 transition group">
+                    <span class="w-12 h-12 bg-blue-800 text-white rounded-xl flex items-center justify-center font-black group-hover:bg-yellow-400 group-hover:text-blue-900">02</span>
+                    <span class="font-bold text-blue-900 uppercase tracking-tighter">Hackathon 2026</span>
                 </a>
-                <a href="detail-lomba.html?type=web" class="group p-8 border-2 border-slate-50 rounded-[2.5rem] hover:border-yellow-400 hover:bg-yellow-50 transition-all flex items-center justify-between">
-                    <div class="flex items-center gap-6">
-                        <div class="w-16 h-16 bg-blue-800 text-white rounded-2xl flex items-center justify-center font-black group-hover:scale-110 transition">03</div>
-                        <h4 class="text-xl font-black text-blue-900 uppercase italic">Web Technology</h4>
-                    </div>
-                    <span class="opacity-0 group-hover:opacity-100 transition">→</span>
+                <a href="detail-lomba.html?type=web" class="p-6 border-2 border-slate-100 rounded-3xl hover:border-yellow-400 flex items-center gap-4 transition group">
+                    <span class="w-12 h-12 bg-blue-800 text-white rounded-xl flex items-center justify-center font-black group-hover:bg-yellow-400 group-hover:text-blue-900">03</span>
+                    <span class="font-bold text-blue-900 uppercase tracking-tighter">Web Technology</span>
                 </a>
-                <a href="detail-lomba.html?type=infografis" class="group p-8 border-2 border-slate-50 rounded-[2.5rem] hover:border-yellow-400 hover:bg-yellow-50 transition-all flex items-center justify-between">
-                    <div class="flex items-center gap-6">
-                        <div class="w-16 h-16 bg-blue-800 text-white rounded-2xl flex items-center justify-center font-black group-hover:scale-110 transition">04</div>
-                        <h4 class="text-xl font-black text-blue-900 uppercase italic">Desain Infografis</h4>
-                    </div>
-                    <span class="opacity-0 group-hover:opacity-100 transition">→</span>
+                <a href="detail-lomba.html?type=infografis" class="p-6 border-2 border-slate-100 rounded-3xl hover:border-yellow-400 flex items-center gap-4 transition group">
+                    <span class="w-12 h-12 bg-blue-800 text-white rounded-xl flex items-center justify-center font-black group-hover:bg-yellow-400 group-hover:text-blue-900">04</span>
+                    <span class="font-bold text-blue-900 uppercase tracking-tighter">Desain Infografis</span>
                 </a>
             </div>
         </div>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: true });
+        AOS.init({ duration: 1000, once: true });
 
-        // Countdown Script
-        function updateCountdown() {
-            const target = new Date("February 1, 2026 00:00:00").getTime();
-            const now = new Date().getTime();
-            const diff = target - now;
-
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = d.toString().padStart(2, '0');
-            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if(window.scrollY > 50) {
-                nav.classList.add('py-2');
-            } else {
-                nav.classList.remove('py-2');
+        // Swiper: Bento (Only on Mobile)
+        let bentoSwiper;
+        function initBento() {
+            if (window.innerWidth < 1024) {
+                if (!bentoSwiper) {
+                    bentoSwiper = new Swiper('.bentoSwiper', {
+                        slidesPerView: 1.1, spaceBetween: 20, centeredSlides: true,
+                        pagination: { el: '.swiper-pagination', clickable: true },
+                    });
+                }
+            } else if (bentoSwiper) {
+                bentoSwiper.destroy(true, true); bentoSwiper = undefined;
             }
+        }
+
+        // Swiper: Activity (Always Slider)
+        const activitySwiper = new Swiper('.activitySwiper', {
+            slidesPerView: 'auto', spaceBetween: 20, centeredSlides: true, loop: true,
+            navigation: { nextEl: '.act-next', prevEl: '.act-prev' },
+            breakpoints: { 768: { spaceBetween: 40 } }
         });
 
-        // Modal Controls
-        function openModal() {
-            const modal = document.getElementById('compModal');
-            const box = document.getElementById('modalBox');
-            modal.classList.remove('hidden');
-            setTimeout(() => box.classList.remove('scale-90'), 10);
-            document.body.style.overflow = 'hidden';
+        window.addEventListener('resize', initBento);
+        initBento();
+
+        // Countdown Logic
+        function updateCD() {
+            const gap = new Date("February 1, 2026 00:00:00").getTime() - new Date().getTime();
+            document.getElementById('days').innerText = Math.floor(gap / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById('hours').innerText = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
         }
-        function closeModal() {
-            const modal = document.getElementById('compModal');
-            const box = document.getElementById('modalBox');
-            box.classList.add('scale-90');
-            setTimeout(() => modal.classList.add('hidden'), 300);
-            document.body.style.overflow = 'auto';
-        }
+        setInterval(updateCD, 1000); updateCD();
+
+        function openModal() { document.getElementById('compModal').classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        function closeModal() { document.getElementById('compModal').classList.add('hidden'); document.body.style.overflow = 'auto'; }
     </script>
 </body>
 </html>
