@@ -19,13 +19,8 @@
                         radial-gradient(at 100% 0%, hsla(45,93%,58%,0.2) 0, transparent 50%), var(--biru);
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
 
-        /* Timeline Marker */
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -42,101 +37,92 @@
 </head>
 <body class="text-slate-900">
 
-    <section class="mesh-header text-white pt-24 pb-48 md:pb-60 px-6 relative overflow-hidden">
+    <nav class="fixed w-full z-[100] px-4 py-4 md:px-6 md:py-6 transition-all duration-500" id="navbar">
+        <div class="container mx-auto flex justify-between items-center glass-nav rounded-[2.5rem] px-5 py-3 md:px-8 md:py-3 shadow-xl border border-white/40">
+            <div class="flex items-center gap-4 md:gap-8">
+                <a href="index.html"><img src="logo_infest.png" alt="Logo INFEST" class="h-8 md:h-10 w-auto object-contain"></a>
+                <div class="hidden lg:flex space-x-6 text-[10px] font-bold uppercase tracking-widest text-slate-500 border-l border-slate-200 pl-6">
+                    <a href="index.html#home" class="hover:text-blue-800 transition">Home</a>
+                    <a href="index.html#about" class="hover:text-blue-800 transition">About</a>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <div class="flex gap-3 md:gap-4 items-center bg-white/60 px-4 py-2 rounded-full border border-white/30 shadow-sm">
+                    <img src="polman.png" alt="Polman Babel" class="h-6 md:h-8 w-auto object-contain">
+                    <img src="logo_aptikom.png" alt="Aptikom" class="h-6 md:h-8 w-auto object-contain">
+                    <img src="logo_infinis.png" alt="HMJ Infinis" class="h-6 md:h-8 w-auto object-contain">
+                    <img src="logo_infest.png" alt="INFEST" class="h-6 md:h-8 w-auto object-contain">
+                    <div class="w-[1px] h-4 bg-slate-300 mx-1"></div>
+                    <img src="logo_berdampak.png" alt="Kampus Berdampak" class="h-6 md:h-8 w-auto object-contain">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="mesh-header text-white pt-32 pb-48 md:pb-60 px-6 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        
         <div class="container mx-auto relative z-10">
             <a href="index.html" class="inline-flex items-center gap-2 text-yellow-400 font-bold mb-10 group transition-all">
                 <span class="group-hover:-translate-x-2 transition-transform">←</span> 
-                <span class="text-[10px] uppercase tracking-widest">Back to Universe</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold">Back to Home</span>
             </a>
-            
             <div data-aos="fade-right">
-                <h1 id="title" class="text-4xl md:text-7xl font-black italic uppercase mb-6 leading-tight tracking-tighter">...</h1>
-                <p id="desc" class="text-base md:text-xl opacity-80 max-w-2xl leading-relaxed italic border-l-4 border-yellow-400 pl-6 md:pl-8"></p>
+                <h1 id="title" class="text-4xl md:text-7xl font-black italic uppercase mb-6 leading-tight tracking-tighter text-white">...</h1>
+                <p id="desc" class="text-base md:text-xl opacity-80 max-w-2xl leading-relaxed italic border-l-4 border-yellow-400 pl-6 md:pl-8 text-white"></p>
             </div>
         </div>
     </section>
 
     <div class="container mx-auto px-4 md:px-6 -mt-24 md:-mt-32 relative z-20">
         <div class="swiper infoSwiper">
-            <div class="swiper-wrapper lg:grid lg:grid-cols-3 lg:gap-6">
-                <div class="swiper-slide h-auto">
-                    <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-slate-50 h-full">
-                        <span class="text-slate-400 font-black uppercase text-[8px] mb-4 block tracking-widest">Registration Fee</span>
-                        <p class="text-3xl font-black text-blue-900 italic">Rp75.000<span class="text-xs opacity-40">/Tim</span></p>
-                    </div>
+            <div id="infoCardsContainer" class="swiper-wrapper lg:grid lg:grid-cols-3 lg:gap-6">
                 </div>
-                <div class="swiper-slide h-auto">
-                    <div class="bg-yellow-400 p-8 md:p-10 rounded-[2.5rem] shadow-2xl h-full">
-                        <span class="text-blue-900 font-black uppercase text-[8px] mb-4 block tracking-widest">Grand Prize</span>
-                        <p class="text-3xl font-black text-blue-900 italic underline decoration-blue-900/20">Jutaan Rupiah</p>
-                    </div>
-                </div>
-                <div class="swiper-slide h-auto">
-                    <div class="bg-blue-950 text-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl h-full">
-                        <span class="text-yellow-400 font-black uppercase text-[8px] mb-4 block tracking-widest">Scale</span>
-                        <p class="text-3xl font-black italic uppercase tracking-tighter">Nasional</p>
-                    </div>
-                </div>
-            </div>
             <div class="swiper-pagination lg:hidden !-bottom-2"></div>
         </div>
     </div>
 
     <section class="py-20 md:py-32 container mx-auto px-6 grid lg:grid-cols-12 gap-12 md:gap-20">
-        
         <div class="lg:col-span-7" data-aos="fade-right">
-            <h2 class="text-2xl md:text-3xl font-black text-blue-900 uppercase italic mb-8 tracking-tighter">General Rules</h2>
-            <div class="space-y-6">
-                <div class="flex gap-4">
-                    <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-800 font-bold shrink-0 text-xs">01</div>
-                    <p class="text-slate-600 text-sm md:text-base">Terbuka untuk Mahasiswa/Siswa aktif tingkat Nasional dibuktikan dengan Kartu Pelajar/Mahasiswa.</p>
-                </div>
-                <div class="flex gap-4">
-                    <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-800 font-bold shrink-0 text-xs">02</div>
-                    <p class="text-slate-600 text-sm md:text-base">Satu tim maksimal terdiri dari 3 orang dari instansi/sekolah yang sama.</p>
-                </div>
-                <div class="flex gap-4">
-                    <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-800 font-bold shrink-0 text-xs">03</div>
-                    <p class="text-slate-600 text-sm md:text-base">Wajib mengikuti seluruh rangkaian acara dan mematuhi Guidebook yang telah disediakan.</p>
-                </div>
+            <h2 class="text-2xl md:text-3xl font-black text-blue-900 uppercase italic mb-8 tracking-tighter">Ketentuan Umum</h2>
+            <div class="p-6 bg-slate-50 rounded-3xl border-l-4 border-blue-800">
+                <ul class="space-y-4 text-slate-700 text-sm md:text-base font-medium">
+                    <li>● Peserta wajib memahami seluruh teknis di <strong>Guidebook Resmi</strong>.</li>
+                    <li>● Pendaftaran dilakukan online melalui link resmi yang tertera.</li>
+                    <li>● Satu tim terdiri dari 2-3 orang (untuk kategori Tim) dari instansi yang sama.</li>
+                    <li>● Keputusan juri bersifat mutlak dan tidak dapat diganggu gugat.</li>
+                </ul>
             </div>
 
             <div class="mt-12 p-8 md:p-12 bg-slate-900 rounded-[3rem] text-white overflow-hidden relative group">
-                <h3 class="text-2xl font-black mb-6 italic uppercase text-yellow-400">Ready to Compete?</h3>
+                <h3 class="text-2xl font-black mb-6 italic uppercase text-yellow-400">Siap Berkompetisi?</h3>
                 <div class="flex flex-col sm:flex-row gap-4 relative z-10">
-                    <a href="#" class="px-10 py-4 bg-yellow-400 text-blue-900 rounded-2xl font-black text-center text-xs uppercase tracking-widest hover:scale-105 transition shadow-lg">Register Now</a>
-                    <a href="#" class="px-10 py-4 border border-white/20 rounded-2xl font-bold text-center text-xs uppercase tracking-widest hover:bg-white/10 transition">Guidebook PDF</a>
+                    <a id="regBtn" href="#" target="_blank" class="px-10 py-4 bg-yellow-400 text-blue-900 rounded-2xl font-black text-center text-xs uppercase tracking-widest hover:scale-105 transition shadow-lg">Daftar Sekarang</a>
+                    <a id="gbBtn" href="#" target="_blank" class="px-10 py-4 border border-white/20 rounded-2xl font-bold text-center text-xs uppercase tracking-widest hover:bg-white/10 transition">Download Guidebook</a>
                 </div>
-                <div class="absolute -bottom-4 -right-4 text-7xl font-black opacity-5 italic select-none">WINNER</div>
             </div>
         </div>
 
         <div class="lg:col-span-5" data-aos="fade-left">
-            <div class="bg-slate-50 p-10 rounded-[3rem] border border-slate-100">
+            <div class="bg-slate-50 p-10 rounded-[3rem] border border-slate-100 shadow-sm">
                 <h2 class="text-2xl font-black text-blue-950 uppercase italic mb-10 tracking-tighter">Timeline</h2>
-                <div class="ml-4 border-l-2 border-slate-200 pl-8 space-y-12">
-                    <div class="timeline-item relative">
-                        <h4 class="font-bold text-blue-900 uppercase text-xs">Pendaftaran</h4>
-                        <p class="text-[10px] text-slate-400 font-bold mt-1">Januari - Februari 2026</p>
+                <div id="timelineContainer" class="ml-4 border-l-2 border-slate-200 pl-8 space-y-12">
                     </div>
-                    <div class="timeline-item relative">
-                        <h4 class="font-bold text-blue-900 uppercase text-xs">Technical Meeting</h4>
-                        <p class="text-[10px] text-slate-400 font-bold mt-1">TBA</p>
-                    </div>
-                    <div class="timeline-item relative">
-                        <h4 class="font-bold text-blue-900 uppercase text-xs">Penyisihan & Final</h4>
-                        <p class="text-[10px] text-slate-400 font-bold mt-1">Maret 2026</p>
-                    </div>
-                </div>
             </div>
         </div>
-
     </section>
 
-    <footer class="py-12 text-center border-t border-slate-50">
-        <p class="text-[8px] font-black text-slate-300 tracking-[0.5em] uppercase italic">INFEST 2026 x HMJ INFINIS</p>
+    <footer class="py-16 bg-white border-t border-slate-100 text-center">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 mb-12 grayscale opacity-40 hover:grayscale-0 transition-all duration-700">
+                <img src="polman.png" alt="Polman" class="h-10 md:h-12 w-auto">
+                <img src="logo_aptikom.png" alt="Aptikom" class="h-10 md:h-12 w-auto">
+                <img src="logo_infinis.png" alt="Infinis" class="h-10 md:h-12 w-auto">
+                <img src="logo_infest.png" alt="Infest" class="h-10 md:h-12 w-auto">
+                <img src="logo_berdampak.png" alt="Berdampak" class="h-10 md:h-12 w-auto">
+            </div>
+            <p class="text-[10px] font-black text-slate-300 tracking-[0.5em] uppercase italic">INFEST 2026 x HMJ INFINIS</p>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -144,40 +130,117 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // Swiper: Info Cards (Mobile Only)
-        let infoSwiper;
-        function initInfoSwiper() {
-            if (window.innerWidth < 1024) {
-                if (!infoSwiper) {
-                    infoSwiper = new Swiper('.infoSwiper', {
-                        slidesPerView: 1.1, spaceBetween: 20, centeredSlides: true,
-                        pagination: { el: '.swiper-pagination', clickable: true },
-                    });
-                }
-            } else if (infoSwiper) {
-                infoSwiper.destroy(true, true); infoSwiper = undefined;
-            }
-        }
-        window.addEventListener('resize', initInfoSwiper);
-        initInfoSwiper();
-
-        // Data Population
         const params = new URLSearchParams(window.location.search);
         const type = params.get('type');
+        
         const competitionData = {
-            'bmc': { title: 'Business Model Canvas', desc: 'Strategi bisnis inovatif untuk ekosistem digital masa depan.' },
-            'hackathon': { title: 'Hackathon 2026', desc: 'Bangun solusi digital nyata dalam tantangan 24 jam.' },
-            'web': { title: 'Web Technology', desc: 'Eksplorasi teknologi web modern untuk performa tinggi.' },
-            'infografis': { title: 'Desain Infografis', desc: 'Visualisasikan data teknologi menjadi karya informatif.' }
+            'bmc': { 
+                title: 'Business Model Canvas', 
+                desc: 'Rancang strategi bisnis inovatif untuk ekosistem digital masa depan.',
+                fee: '50k - 75k', unit: '/Tim',
+                reg: 'https://bit.ly/PENDAFTARAN-BMC-INFEST2026',
+                gb: 'https://bit.ly/GUIDEBOOK-BMC--INFEST2026',
+                timeline: [
+                    { label: 'Pendaftaran G1', date: '08 - 18 Februari 2026' },
+                    { label: 'Pendaftaran G2', date: '19 Februari - 1 Maret 2026' },
+                    { label: 'Pembukaan (Online)', date: '3 Maret 2026' },
+                    { label: 'Pengumpulan Karya', date: '18 Maret 2026' },
+                    { label: 'Pengumuman Finalis', date: '26 Maret 2026' },
+                    { label: 'Final (Offline)', date: '07 April 2026' }
+                ]
+            },
+            'hackathon': { 
+                title: 'Hackathon 2026', 
+                desc: 'Bangun solusi digital nyata dalam tantangan maraton kreativitas.',
+                fee: '50k - 75k', unit: '/Tim',
+                reg: 'https://bit.ly/PENDAFTARAN-HACKATHON-INFEST2026',
+                gb: 'https://bit.ly/GUIDEBOOK-HACKATHON-INFEST2026',
+                timeline: [
+                    { label: 'Pendaftaran G1', date: '08 - 18 Februari 2026' },
+                    { label: 'Pendaftaran G2', date: '19 Februari - 1 Maret 2026' },
+                    { label: 'Pembukaan (Online)', date: '3 Maret 2026' },
+                    { label: 'Babak Penyisihan', date: '21 Maret 2026' },
+                    { label: 'Pengumuman Finalis', date: '26 Maret 2026' },
+                    { label: 'Final (Offline)', date: '07 April 2026' }
+                ]
+            },
+            'web': { 
+                title: 'Web Technologies', 
+                desc: 'Membangun platform web masa depan dengan performa tinggi.',
+                fee: '100k', unit: '/Orang',
+                reg: 'https://bit.ly/PENDAFTARAN-WEBTECH-INFEST2026',
+                gb: 'https://bit.ly/GUIDEBOOK-WEBTECH-INFEST2026',
+                timeline: [
+                    { label: 'Pendaftaran', date: '08 Februari - 1 Maret 2026' },
+                    { label: 'Pembukaan (Online)', date: '3 Maret 2026' },
+                    { label: 'Babak Penyisihan', date: '21 Maret 2026' },
+                    { label: 'Final (Offline)', date: '07 April 2026' }
+                ]
+            },
+            'infografis': { 
+                title: 'Desain Infografis', 
+                desc: 'Visualisasikan data teknologi menjadi karya informatif dan estetik.',
+                fee: '30k', unit: '/Orang',
+                reg: 'https://bit.ly/PENDAFTARAN-INFOGRAFIS-INFEST2026',
+                gb: 'https://bit.ly/GUIDEBOOK-INFOGRAFIS-INFEST2026',
+                timeline: [
+                    { label: 'Pendaftaran', date: '08 Februari - 1 Maret 2026' },
+                    { label: 'Pembukaan Acara', date: '3 Maret 2026' },
+                    { label: 'Pengumpulan Karya', date: '05 - 23 Maret 2026' },
+                    { label: 'Pengumuman Juara', date: '07 April 2026' }
+                ]
+            }
         };
 
         if(competitionData[type]) {
-            document.getElementById('title').innerText = competitionData[type].title;
-            document.getElementById('desc').innerText = competitionData[type].desc;
-            document.title = `${competitionData[type].title} - INFEST 2026`;
+            const data = competitionData[type];
+            document.getElementById('title').innerText = data.title;
+            document.getElementById('desc').innerText = data.desc;
+            
+            document.getElementById('infoCardsContainer').innerHTML = `
+                <div class="swiper-slide h-auto">
+                    <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl h-full border border-slate-50">
+                        <span class="text-slate-400 font-bold uppercase text-[8px] mb-2 block italic">Registration Fee</span>
+                        <p class="text-3xl font-black text-blue-900 italic">Rp${data.fee}<span class="text-sm font-normal opacity-50">${data.unit}</span></p>
+                    </div>
+                </div>
+                <div class="swiper-slide h-auto">
+                    <div class="bg-yellow-400 p-8 md:p-10 rounded-[2.5rem] shadow-2xl h-full">
+                        <span class="text-blue-900 font-bold uppercase text-[8px] mb-2 block italic">Grand Prize</span>
+                        <p class="text-3xl font-black text-blue-900 italic underline">Jutaan Rupiah</p>
+                    </div>
+                </div>
+                <div class="swiper-slide h-auto">
+                    <div class="bg-blue-950 text-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl h-full">
+                        <span class="text-yellow-400 font-bold uppercase text-[8px] mb-2 block italic">Scale</span>
+                        <p class="text-3xl font-black italic uppercase">NASIONAL</p>
+                    </div>
+                </div>
+            `;
+
+            let timelineHTML = '';
+            data.timeline.forEach(item => {
+                timelineHTML += `
+                    <div class="timeline-item relative">
+                        <h4 class="font-bold text-blue-900 uppercase text-xs">${item.label}</h4>
+                        <p class="text-[10px] text-slate-400 font-bold mt-1 uppercase italic">${item.date}</p>
+                    </div>
+                `;
+            });
+            document.getElementById('timelineContainer').innerHTML = timelineHTML;
+
+            document.getElementById('regBtn').href = data.reg;
+            document.getElementById('gbBtn').href = data.gb;
         } else {
             window.location.href = 'index.html';
         }
+
+        // Swiper Init
+        new Swiper('.infoSwiper', {
+            slidesPerView: 1.1, spaceBetween: 20, centeredSlides: true,
+            breakpoints: { 1024: { slidesPerView: 3, centeredSlides: false, spaceBetween: 30 } },
+            pagination: { el: '.swiper-pagination', clickable: true }
+        });
     </script>
 </body>
 </html>
